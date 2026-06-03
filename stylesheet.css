@@ -1,0 +1,80 @@
+.topnav {
+  background-color: #441666;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: -0.5%
+}
+
+.topnav .brand {
+  color: #c94ed0;
+  font-size: 20px;
+  padding: 14px 16px;
+  margin-right: auto;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  display: block;
+  color: #c94ed0;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #86337B;
+  color: rgb(255, 255, 255);
+}
+
+/* Add an active class to highlight the current page */
+
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.5)),
+    url("OIP.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.content {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin-top: 10%;
+  font-size: 30px;
+  text-shadow: 6px 2px 4px rgb(0, 0, 0);
+}
+.divider {
+  color: rgb(158, 155, 155);
+  text-align: center;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  font-size: 20px;
+  margin-top: -50px;  
+}
+.Tijden {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 20px;
+  text-shadow: 6px 2px 4px rgb(0, 0, 0);
+  word-spacing: 5px;
+}
+.button {
+
+  background-color: #441666;
+  color: white;
+  padding: 10px 20px;
+  font-size: 20px;
+  text-decoration: none;
+    margin-top: 20px;
+}
+
