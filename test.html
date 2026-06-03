@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="nl" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talent Night Ede</title>
+  <script type='text/javascript' src='https://cacrdn8q2gpg6na4.canvacode.com/F5DcXF9DNjvOCMBZ7FqB4B5zsolKVeJfhSzHVMH5lJ-GZczCaj_9acok4i_3bIUAeNxV9yGtOOVAxsFF6bdaMOMslHecX6Q2GNZXIPARFumOOoG633NYUmAYn_aI4QTfs2zJ-kW72-DRKcRfTG312ET3a5EX2QzylhO0CTw3BLPDSOSIbJhe4LjNWd-DdzeB3pgA897QWTAG16uqEdo8oBlmDhwXTcSsJnIfZeVosAxHMXjgPIYAIYMEIYbNlIbzmHC_f3q2wjYESqOKXv-KouTkvovF8TjGoS6joJtUBM8cGdiriYy3_YZZFOn90MBEEgN-fPO25FMkl5F9ey8b-BhUdcVHjolbXhimdM-XgIiPXfZkJkj5BuG-CciEfWwj_X6DAkb2HI8DUc9N5hnlS-E-eFOH6FxQYvrczVROsQTq3HC_uutPKgh0yhdzJo3KkHEuryTPmn7J5eQtIdOdmVOtUG5Hzl9feo_wG48OPIMmzfNemKZyguFkUWzNKl4HdjrMozfGiZw2hN0gYezQEDFBLwnQF60sk8TNaD4d4dXqI65xeGkLdobX1bOTqoaz6q40_KAYdBSD6clACbKQo4pNQufqco1NxUsOWEV_99qKxFZRvOIBMySBBOuva-0roLpY76IPAgGQYgLUSZ6MYJf8bKRJEJKWMHFm2tUXewuK0PLchCrXiX1YRhZpxNZFC_kGZWtRD6DZjQ'></script><script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+  <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        outfit: ['Outfit', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+  <style>
+        html, body { height: 100%; margin: 0; }
+        .app-wrapper { height: 100%; overflow-y: auto; overflow-x: hidden; }
+        
+        .neon-glow { text-shadow: 0 0 10px #a855f7, 0 0 40px #a855f7, 0 0 80px #7c3aed; }
+        .neon-glow-pink { text-shadow: 0 0 10px #ec4899, 0 0 40px #ec4899; }
+        .card-glow { box-shadow: 0 0 20px rgba(168, 85, 247, 0.15), 0 4px 30px rgba(0,0,0,0.4); }
+        .card-glow:hover { box-shadow: 0 0 30px rgba(168, 85, 247, 0.3), 0 8px 40px rgba(0,0,0,0.5); }
+        .btn-neon { background: linear-gradient(135deg, #7c3aed, #ec4899); transition: all 0.3s; }
+        .btn-neon:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(168, 85, 247, 0.5); }
+        .btn-secondary { background: linear-gradient(135deg, #06b6d4, #3b82f6); transition: all 0.3s; }
+        .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(6, 182, 212, 0.5); }
+        
+        .gradient-bg { background: radial-gradient(ellipse at top, #1e1b4b 0%, #0f0a1e 50%, #030014 100%); }
+        .input-field { background: rgba(255,255,255,0.05); border: 1px solid rgba(168,85,247,0.3); transition: all 0.3s; }
+        .input-field:focus { border-color: #a855f7; box-shadow: 0 0 15px rgba(168,85,247,0.2); outline: none; }
+        
+        .stat-card { background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(236,72,153,0.1)); border: 1px solid rgba(168,85,247,0.2); }
+        
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes pulse-slow { 0%,100% { opacity: 0.4; } 50% { opacity: 0.8; } }
+        .float-anim { animation: float 4s ease-in-out infinite; }
+        .pulse-anim { animation: pulse-slow 3s ease-in-out infinite; }
+        
+        .page { display: none; }
+        .page.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .nav-link { position: relative; transition: color 0.3s; }
+        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #a855f7, #ec4899); transition: width 0.3s; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        
+        .table-row:hover { background: rgba(168,85,247,0.08); }
+        
+        .orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
+    </style>
+  <style>body { box-sizing: border-box; }</style>
+ <script src="/_sdk/telemetry_sdk.js"></script></head>
+ <body class="font-outfit text-white">
+  <div class="app-wrapper gradient-bg relative" id="app"><!-- Decorative orbs -->
+   <div class="orb w-64 h-64 bg-purple-600 opacity-20 top-0 left-0 pulse-anim" style="position:fixed;"></div>
+   <div class="orb w-48 h-48 bg-pink-500 opacity-15 top-1/2 right-0 pulse-anim" style="position:fixed; animation-delay:1.5s;"></div>
+   <div class="orb w-56 h-56 bg-cyan-500 opacity-10 bottom-0 left-1/3 pulse-anim" style="position:fixed; animation-delay:3s;"></div><!-- Navigation -->
+   <nav class="sticky top-0 z-50 backdrop-blur-xl bg-black/40 border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+     <div class="flex items-center gap-2 cursor-pointer" onclick="navigate('home')"><i data-lucide="sparkles" class="w-6 h-6 text-purple-400"></i> <span class="font-bold text-lg" id="nav-title">Talent Night Ede</span>
+     </div><!-- Desktop nav -->
+     <div class="hidden md:flex items-center gap-6"><a class="nav-link text-sm text-gray-300 hover:text-white cursor-pointer active" data-page="home" onclick="navigate('home')">Home</a> <a class="nav-link text-sm text-gray-300 hover:text-white cursor-pointer" data-page="tickets" onclick="navigate('tickets')">Tickets</a> <a class="nav-link text-sm text-gray-300 hover:text-white cursor-pointer" data-page="deelnemer" onclick="navigate('deelnemer')">Doe Mee</a> <a class="nav-link text-sm text-gray-300 hover:text-white cursor-pointer" data-page="admin" onclick="navigate('admin')">Admin</a>
+     </div><!-- Mobile menu button --> <button class="md:hidden text-gray-300" onclick="toggleMobileMenu()"> <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i> </button>
+    </div><!-- Mobile menu -->
+    <div class="md:hidden hidden bg-black/80 backdrop-blur-xl border-t border-white/5 px-4 py-3" id="mobile-menu"><a class="block py-2 text-gray-300 hover:text-white cursor-pointer" onclick="navigate('home')">Home</a> <a class="block py-2 text-gray-300 hover:text-white cursor-pointer" onclick="navigate('tickets')">Tickets</a> <a class="block py-2 text-gray-300 hover:text-white cursor-pointer" onclick="navigate('deelnemer')">Doe Mee</a> <a class="block py-2 text-gray-300 hover:text-white cursor-pointer" onclick="navigate('admin')">Admin</a>
+    </div>
+   </nav><!-- HOME PAGE -->
+   <section class="page active" id="page-home">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 text-center relative">
+     <div class="float-anim inline-block mb-6"><span class="bg-purple-500/20 border border-purple-500/30 text-purple-300 text-xs font-mono px-4 py-1.5 rounded-full">🎤 Schoolproject 2025</span>
+     </div>
+     <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 neon-glow" id="hero-title">Talent Night Ede</h1>
+     <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-4" id="hero-desc">Dé avond waar talent samenkomt. Zang, dans, comedy en muziek — allemaal op één podium.</p>
+     <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-300 mb-10"><span class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-cyan-400"></i> <span id="hero-date">15 Juni 2025</span></span> <span class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-pink-400"></i> 19:30 uur</span> <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-purple-400"></i> <span id="hero-location">Cultuurhuis Ede</span></span>
+     </div>
+     <div class="flex flex-wrap justify-center gap-4 mb-16"><button class="btn-neon text-white font-semibold px-8 py-3 rounded-full" onclick="navigate('tickets')"> <span class="flex items-center gap-2"><i data-lucide="ticket" class="w-5 h-5"></i> Reserveer Ticket</span> </button> <button class="btn-secondary text-white font-semibold px-8 py-3 rounded-full" onclick="navigate('deelnemer')"> <span class="flex items-center gap-2"><i data-lucide="star" class="w-5 h-5"></i> Doe Mee</span> </button>
+     </div><!-- Feature cards -->
+     <div class="grid md:grid-cols-3 gap-6 text-left mb-16">
+      <div class="card-glow bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 transition-all duration-300">
+       <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4">
+        <i data-lucide="mic" class="w-6 h-6 text-purple-400"></i>
+       </div>
+       <h3 class="font-bold text-lg mb-2">Zang &amp; Muziek</h3>
+       <p class="text-gray-400 text-sm">Solo artiesten en bands laten hun stem horen op het grote podium.</p>
+      </div>
+      <div class="card-glow bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 transition-all duration-300">
+       <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center mb-4">
+        <i data-lucide="music" class="w-6 h-6 text-pink-400"></i>
+       </div>
+       <h3 class="font-bold text-lg mb-2">Dans &amp; Performance</h3>
+       <p class="text-gray-400 text-sm">Van hiphop tot ballet — elk danstalent krijgt de kans te shinen.</p>
+      </div>
+      <div class="card-glow bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 transition-all duration-300">
+       <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center mb-4">
+        <i data-lucide="laugh" class="w-6 h-6 text-cyan-400"></i>
+       </div>
+       <h3 class="font-bold text-lg mb-2">Comedy &amp; Theater</h3>
+       <p class="text-gray-400 text-sm">Maak het publiek aan het lachen met jouw beste acts en sketches.</p>
+      </div>
+     </div><!-- Gallery mock -->
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-16">
+      <div class="aspect-square rounded-xl bg-gradient-to-br from-purple-900/50 to-purple-600/20 border border-purple-500/20 flex items-center justify-center">
+       <i data-lucide="mic-2" class="w-10 h-10 text-purple-400 opacity-50"></i>
+      </div>
+      <div class="aspect-square rounded-xl bg-gradient-to-br from-pink-900/50 to-pink-600/20 border border-pink-500/20 flex items-center justify-center">
+       <i data-lucide="users" class="w-10 h-10 text-pink-400 opacity-50"></i>
+      </div>
+      <div class="aspect-square rounded-xl bg-gradient-to-br from-cyan-900/50 to-cyan-600/20 border border-cyan-500/20 flex items-center justify-center">
+       <i data-lucide="music-2" class="w-10 h-10 text-cyan-400 opacity-50"></i>
+      </div>
+      <div class="aspect-square rounded-xl bg-gradient-to-br from-blue-900/50 to-blue-600/20 border border-blue-500/20 flex items-center justify-center">
+       <i data-lucide="camera" class="w-10 h-10 text-blue-400 opacity-50"></i>
+      </div>
+     </div><!-- Team -->
+     <div class="text-center">
+      <p class="text-gray-500 text-sm font-mono">Gemaakt door <span class="text-purple-400">Dmytro</span> &amp; <span class="text-pink-400">Ugur</span></p>
+     </div>
+    </div>
+   </section><!-- TICKETS PAGE -->
+   <section class="page" id="page-tickets">
+    <div class="max-w-xl mx-auto px-4 py-12 md:py-20">
+     <div class="text-center mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold neon-glow-pink mb-3">Reserveer Ticket</h2>
+      <p class="text-gray-400">Vul je gegevens in om een plek te reserveren.</p>
+     </div>
+     <form class="card-glow bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10 space-y-5" id="ticket-form" onsubmit="submitTicket(event)">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+       <div><label class="block text-sm text-gray-300 mb-1.5" for="t-fn">Voornaam</label> <input id="t-fn" type="text" required class="input-field w-full rounded-xl px-4 py-3 text-white placeholder-gray-500" placeholder="Jan">
+       </div>
+       <div><label class="block text-sm text-gray-300 mb-1.5" for="t-ln">Achternaam</label> <input id="t-ln" type="text" required class="input-field w-full rounded-xl px-4 py-3 text-white placeholder-gray-500" placeholder="de Vries">
+       </div>
+      </div>
+      <div><label class="block text-sm text-gray-300 mb-1.5" for="t-addr">Adres</label> <input id="t-addr" type="text" required class="input-field w-full rounded-xl px-4 py-3 text-white placeholder-gray-500" placeholder="Hoofdstraat 1, Ede">
+      </div>
+      <div><label class="block text-sm text-gray-300 mb-1.5" for="t-email">E-mailadres</label> <input id="t-email" type="email" required class="input-field w-full rounded-xl px-4 py-3 text-white placeholder-gray-500" placeholder="jan@voorbeeld.nl">
+      </div>
+      <div><label class="block text-sm text-gray-300 mb-1.5" for="t-count">Aantal tickets</label> <input id="t-count" type="number" min="1" max="10" value="1" required class="input-field w-full rounded-xl px-4 py-3 text-white placeholder-gray-500">
+      </div><button type="submit" class="btn-neon w-full text-white font-bold py-4 rounded-xl text-lg" id="ticket-btn"> <span class="flex items-center justify-center gap-2"><i data-lucide="check-circle" class="w-5 h-5"></i> Reserveren</span> </button>
+      <div id="ticket-success" class="hidden text-center py-4">
+       <div class="inline-flex items-center gap-2 bg-green-500/20 border border-green-500/30 text-green-300 px-6 py-3 rounded-xl"><i data-lucide="check" class="w-5 h-5"></i> <span>Ticket gereserveerd! Je ontvangt een bevestiging per e-mail.</span>
+       </div>
+      </div>
+     </form>
+    </div>
+   </section><!-- DEELNEMER PAGE -->
+   <section class="page" id="page-deelnemer">
+    <div class="max-w-xl mx-auto px-4 py-12 md:py-20">
+     <div class="text-center mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold neon-glow mb-3">Doe Mee!</h2>
+      <p class="text-gray-400">Meld je aan als deelnemer en laat je talent zien.</p>
+     </div>
+     <form class="card-glow bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10 space-y-5" id="participant-form" onsubmit="submitParticipant(event)">
+      <div><label class="block text-sm text-gray-300 mb-1.5" for="p-name">Volledige naam</label> <input id="p-name" type="text" required class="input-field w-full rounded-xl px-4 py-3 text-white placeholder-gray-500" placeholder="Jouw naam">
+      </div>
+      <div><label class="block text-sm text-gray-300 mb-1.5" for="p-age">Leeftijd</label> <input id="p-age" type="number" min="6" max="99" required class="input-field w-full rounded-xl px-4 py-3 text-white placeholder-gray-500" placeholder="16">
+      </div>
+      <div><label class="block text-sm text-gray-300 mb-1.5" for="p-email">E-mailadres</label> <input id="p-email" type="email" required class="input-field w-full rounded-xl px-4 py-3 text-white placeholder-gray-500" placeholder="naam@school.nl">
+      </div>
+      <div><label class="block text-sm text-gray-300 mb-1.5" for="p-cat">Categorie</label> <select id="p-cat" required class="input-field w-full rounded-xl px-4 py-3 text-white bg-transparent"> <option value="" class="bg-gray-900">Kies een categorie...</option> <option value="Zang" class="bg-gray-900">🎤 Zang</option> <option value="Dans" class="bg-gray-900">💃 Dans</option> <option value="Comedy" class="bg-gray-900">😂 Comedy</option> <option value="Instrument" class="bg-gray-900">🎸 Instrument</option> </select>
+      </div><button type="submit" class="btn-secondary w-full text-white font-bold py-4 rounded-xl text-lg" id="participant-btn"> <span class="flex items-center justify-center gap-2"><i data-lucide="star" class="w-5 h-5"></i> Aanmelden</span> </button>
+      <div id="participant-success" class="hidden text-center py-4">
+       <div class="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-6">
+        <p class="text-cyan-300 font-bold text-lg mb-2">Je bent aangemeld! 🎉</p>
+        <p class="text-gray-400 text-sm mb-3">Jouw unieke deelnemerscode:</p>
+        <p class="font-mono text-2xl text-white bg-black/30 rounded-lg py-3 px-6 inline-block tracking-wider" id="participant-code"></p>
+       </div>
+      </div>
+     </form>
+    </div>
+   </section><!-- ADMIN PAGE -->
+   <section class="page" id="page-admin">
+    <div class="max-w-6xl mx-auto px-4 py-12 md:py-16">
+     <div class="mb-10">
+      <h2 class="text-3xl font-bold mb-2">Admin Dashboard</h2>
+      <p class="text-gray-400">Overzicht van alle aanmeldingen en reserveringen.</p>
+     </div><!-- Stats -->
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10" id="stats-grid">
+      <div class="stat-card rounded-xl p-5 text-center">
+       <p class="text-3xl font-bold text-purple-400" id="stat-participants">0</p>
+       <p class="text-gray-400 text-sm mt-1">Deelnemers</p>
+      </div>
+      <div class="stat-card rounded-xl p-5 text-center">
+       <p class="text-3xl font-bold text-pink-400" id="stat-tickets">0</p>
+       <p class="text-gray-400 text-sm mt-1">Tickets</p>
+      </div>
+      <div class="stat-card rounded-xl p-5 text-center">
+       <p class="text-3xl font-bold text-cyan-400" id="stat-minors">0</p>
+       <p class="text-gray-400 text-sm mt-1">Minderjarig</p>
+      </div>
+      <div class="stat-card rounded-xl p-5 text-center">
+       <p class="text-3xl font-bold text-blue-400" id="stat-adults">0</p>
+       <p class="text-gray-400 text-sm mt-1">Volwassen</p>
+      </div>
+     </div><!-- Category breakdown -->
+     <div class="card-glow bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-8">
+      <h3 class="font-bold text-lg mb-4">Categorieën</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="category-bars">
+       <div class="text-center">
+        <div class="h-24 bg-white/5 rounded-lg relative overflow-hidden mb-2">
+         <div class="absolute bottom-0 w-full bg-gradient-to-t from-purple-500 to-purple-400 rounded-lg transition-all" id="bar-zang" style="height:0%"></div>
+        </div><span class="text-xs text-gray-400">🎤 Zang (<span id="count-zang">0</span>)</span>
+       </div>
+       <div class="text-center">
+        <div class="h-24 bg-white/5 rounded-lg relative overflow-hidden mb-2">
+         <div class="absolute bottom-0 w-full bg-gradient-to-t from-pink-500 to-pink-400 rounded-lg transition-all" id="bar-dans" style="height:0%"></div>
+        </div><span class="text-xs text-gray-400">💃 Dans (<span id="count-dans">0</span>)</span>
+       </div>
+       <div class="text-center">
+        <div class="h-24 bg-white/5 rounded-lg relative overflow-hidden mb-2">
+         <div class="absolute bottom-0 w-full bg-gradient-to-t from-cyan-500 to-cyan-400 rounded-lg transition-all" id="bar-comedy" style="height:0%"></div>
+        </div><span class="text-xs text-gray-400">😂 Comedy (<span id="count-comedy">0</span>)</span>
+       </div>
+       <div class="text-center">
+        <div class="h-24 bg-white/5 rounded-lg relative overflow-hidden mb-2">
+         <div class="absolute bottom-0 w-full bg-gradient-to-t from-blue-500 to-blue-400 rounded-lg transition-all" id="bar-instrument" style="height:0%"></div>
+        </div><span class="text-xs text-gray-400">🎸 Instrument (<span id="count-instrument">0</span>)</span>
+       </div>
+      </div>
+     </div><!-- Participants table -->
+     <div class="card-glow bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-8">
+      <h3 class="font-bold text-lg mb-4">Deelnemers</h3>
+      <div class="overflow-x-auto">
+       <table class="w-full text-sm">
+        <thead>
+         <tr class="text-gray-400 border-b border-white/10">
+          <th class="text-left py-3 px-2">Naam</th>
+          <th class="text-left py-3 px-2">Leeftijd</th>
+          <th class="text-left py-3 px-2">Categorie</th>
+          <th class="text-left py-3 px-2">Code</th>
+          <th class="text-left py-3 px-2">Actie</th>
+         </tr>
+        </thead>
+        <tbody id="participants-table"></tbody>
+       </table>
+       <p class="text-gray-500 text-sm text-center py-4 hidden" id="no-participants">Nog geen deelnemers aangemeld.</p>
+      </div>
+     </div><!-- Tickets table -->
+     <div class="card-glow bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+      <h3 class="font-bold text-lg mb-4">Ticket Reserveringen</h3>
+      <div class="overflow-x-auto">
+       <table class="w-full text-sm">
+        <thead>
+         <tr class="text-gray-400 border-b border-white/10">
+          <th class="text-left py-3 px-2">Naam</th>
+          <th class="text-left py-3 px-2">E-mail</th>
+          <th class="text-left py-3 px-2">Tickets</th>
+          <th class="text-left py-3 px-2">Actie</th>
+         </tr>
+        </thead>
+        <tbody id="tickets-table"></tbody>
+       </table>
+       <p class="text-gray-500 text-sm text-center py-4 hidden" id="no-tickets">Nog geen tickets gereserveerd.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+  </div>
+  <script>
+        // State
+        let allData = [];
+        let currentPage = 'home';
+
+        // Navigation
+        function navigate(page) {
+            currentPage = page;
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page-' + page).classList.add('active');
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            document.querySelectorAll(`.nav-link[data-page="${page}"]`).forEach(l => l.classList.add('active'));
+            document.getElementById('mobile-menu').classList.add('hidden');
+            document.querySelector('.app-wrapper').scrollTop = 0;
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Generate unique code
+        function generateCode() {
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+            let code = 'TNE-';
+            for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+            return code;
+        }
+
+        // Ticket form
+        async function submitTicket(e) {
+            e.preventDefault();
+            const btn = document.getElementById('ticket-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="flex items-center justify-center gap-2">Bezig...</span>';
+
+            if (allData.length >= 999) {
+                btn.disabled = false;
+                btn.innerHTML = '<span class="flex items-center justify-center gap-2"><i data-lucide="check-circle" class="w-5 h-5"></i> Reserveren</span>';
+                lucide.createIcons();
+                showInlineMsg('ticket-success', '⚠️ Maximum aantal aanmeldingen bereikt.', 'yellow');
+                return;
+            }
+
+            const result = await window.dataSdk.create({
+                type: 'ticket',
+                first_name: document.getElementById('t-fn').value,
+                last_name: document.getElementById('t-ln').value,
+                address: document.getElementById('t-addr').value,
+                email: document.getElementById('t-email').value,
+                ticket_count: parseInt(document.getElementById('t-count').value),
+                age: null,
+                category: null,
+                participant_code: null,
+                created_at: new Date().toISOString()
+            });
+
+            btn.disabled = false;
+            btn.innerHTML = '<span class="flex items-center justify-center gap-2"><i data-lucide="check-circle" class="w-5 h-5"></i> Reserveren</span>';
+            lucide.createIcons();
+
+            if (result.isOk) {
+                document.getElementById('ticket-form').reset();
+                document.getElementById('ticket-success').classList.remove('hidden');
+                setTimeout(() => document.getElementById('ticket-success').classList.add('hidden'), 5000);
+            }
+        }
+
+        // Participant form
+        async function submitParticipant(e) {
+            e.preventDefault();
+            const btn = document.getElementById('participant-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="flex items-center justify-center gap-2">Bezig...</span>';
+
+            if (allData.length >= 999) {
+                btn.disabled = false;
+                btn.innerHTML = '<span class="flex items-center justify-center gap-2"><i data-lucide="star" class="w-5 h-5"></i> Aanmelden</span>';
+                lucide.createIcons();
+                return;
+            }
+
+            const code = generateCode();
+            const result = await window.dataSdk.create({
+                type: 'participant',
+                first_name: document.getElementById('p-name').value,
+                last_name: null,
+                address: null,
+                email: document.getElementById('p-email').value,
+                ticket_count: null,
+                age: parseInt(document.getElementById('p-age').value),
+                category: document.getElementById('p-cat').value,
+                participant_code: code,
+                created_at: new Date().toISOString()
+            });
+
+            btn.disabled = false;
+            btn.innerHTML = '<span class="flex items-center justify-center gap-2"><i data-lucide="star" class="w-5 h-5"></i> Aanmelden</span>';
+            lucide.createIcons();
+
+            if (result.isOk) {
+                document.getElementById('participant-form').reset();
+                document.getElementById('participant-code').textContent = code;
+                document.getElementById('participant-success').classList.remove('hidden');
+            }
+        }
+
+        function showInlineMsg(id, msg, color) {
+            const el = document.getElementById(id);
+            el.innerHTML = `<div class="inline-flex items-center gap-2 bg-${color}-500/20 border border-${color}-500/30 text-${color}-300 px-6 py-3 rounded-xl">${msg}</div>`;
+            el.classList.remove('hidden');
+            setTimeout(() => el.classList.add('hidden'), 4000);
+        }
+
+        // Admin rendering
+        function renderAdmin() {
+            const participants = allData.filter(d => d.type === 'participant');
+            const tickets = allData.filter(d => d.type === 'ticket');
+            const totalTickets = tickets.reduce((s, t) => s + (t.ticket_count || 0), 0);
+            const minors = participants.filter(p => p.age && p.age < 18).length;
+            const adults = participants.filter(p => p.age && p.age >= 18).length;
+
+            document.getElementById('stat-participants').textContent = participants.length;
+            document.getElementById('stat-tickets').textContent = totalTickets;
+            document.getElementById('stat-minors').textContent = minors;
+            document.getElementById('stat-adults').textContent = adults;
+
+            // Category bars
+            const cats = { Zang: 0, Dans: 0, Comedy: 0, Instrument: 0 };
+            participants.forEach(p => { if (p.category && cats.hasOwnProperty(p.category)) cats[p.category]++; });
+            const maxCat = Math.max(...Object.values(cats), 1);
+            document.getElementById('bar-zang').style.height = (cats.Zang / maxCat * 100) + '%';
+            document.getElementById('bar-dans').style.height = (cats.Dans / maxCat * 100) + '%';
+            document.getElementById('bar-comedy').style.height = (cats.Comedy / maxCat * 100) + '%';
+            document.getElementById('bar-instrument').style.height = (cats.Instrument / maxCat * 100) + '%';
+            document.getElementById('count-zang').textContent = cats.Zang;
+            document.getElementById('count-dans').textContent = cats.Dans;
+            document.getElementById('count-comedy').textContent = cats.Comedy;
+            document.getElementById('count-instrument').textContent = cats.Instrument;
+
+            // Participants table
+            const ptBody = document.getElementById('participants-table');
+            const noP = document.getElementById('no-participants');
+            if (participants.length === 0) { ptBody.innerHTML = ''; noP.classList.remove('hidden'); }
+            else {
+                noP.classList.add('hidden');
+                ptBody.innerHTML = participants.map(p => {
+                    const ageColor = p.age < 18 ? 'text-cyan-400' : 'text-green-400';
+                    return `<tr class="table-row border-b border-white/5">
+                        <td class="py-3 px-2">${p.first_name || ''}</td>
+                        <td class="py-3 px-2 ${ageColor} font-mono">${p.age || ''}</td>
+                        <td class="py-3 px-2">${p.category || ''}</td>
+                        <td class="py-3 px-2 font-mono text-xs text-purple-300">${p.participant_code || ''}</td>
+                        <td class="py-3 px-2"><button onclick="deleteRecord('${p.__backendId}')" class="text-red-400 hover:text-red-300 text-xs">Verwijder</button></td>
+                    </tr>`;
+                }).join('');
+            }
+
+            // Tickets table
+            const ttBody = document.getElementById('tickets-table');
+            const noT = document.getElementById('no-tickets');
+            if (tickets.length === 0) { ttBody.innerHTML = ''; noT.classList.remove('hidden'); }
+            else {
+                noT.classList.add('hidden');
+                ttBody.innerHTML = tickets.map(t => `<tr class="table-row border-b border-white/5">
+                    <td class="py-3 px-2">${t.first_name || ''} ${t.last_name || ''}</td>
+                    <td class="py-3 px-2 text-gray-400">${t.email || ''}</td>
+                    <td class="py-3 px-2 font-mono">${t.ticket_count || 0}</td>
+                    <td class="py-3 px-2"><button onclick="deleteRecord('${t.__backendId}')" class="text-red-400 hover:text-red-300 text-xs">Verwijder</button></td>
+                </tr>`).join('');
+            }
+        }
+
+        async function deleteRecord(id) {
+            const record = allData.find(d => d.__backendId === id);
+            if (record) await window.dataSdk.delete(record);
+        }
+
+        // Data SDK
+        const dataHandler = {
+            onDataChanged(data) {
+                allData = data;
+                renderAdmin();
+            }
+        };
+
+        // Element SDK
+        const defaultConfig = {
+            event_title: 'Talent Night Ede',
+            event_date: '15 Juni 2025',
+            event_location: 'Cultuurhuis Ede',
+            event_description: 'Dé avond waar talent samenkomt. Zang, dans, comedy en muziek — allemaal op één podium.',
+            background_color: '#030014',
+            surface_color: '#1a1035',
+            text_color: '#e2e8f0',
+            primary_action_color: '#a855f7',
+            secondary_action_color: '#06b6d4',
+            font_family: 'Outfit',
+            font_size: 16
+        };
+
+        function applyConfig(config) {
+            const c = { ...defaultConfig, ...config };
+            document.getElementById('hero-title').textContent = c.event_title;
+            document.getElementById('nav-title').textContent = c.event_title;
+            document.getElementById('hero-date').textContent = c.event_date;
+            document.getElementById('hero-location').textContent = c.event_location;
+            document.getElementById('hero-desc').textContent = c.event_description;
+
+            document.body.style.fontFamily = `${c.font_family}, Outfit, sans-serif`;
+            const baseSize = c.font_size;
+            document.querySelectorAll('h1').forEach(el => el.style.fontSize = '');
+            document.body.style.fontSize = baseSize + 'px';
+        }
+
+        window.elementSdk.init({
+            defaultConfig,
+            onConfigChange: async (config) => { applyConfig(config); },
+            mapToCapabilities: (config) => ({
+                recolorables: [
+                    { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); }},
+                    { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); }},
+                    { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); }},
+                    { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); }},
+                    { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); }}
+                ],
+                borderables: [],
+                fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }},
+                fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }}
+            }),
+            mapToEditPanelValues: (config) => new Map([
+                ['event_title', config.event_title || defaultConfig.event_title],
+                ['event_date', config.event_date || defaultConfig.event_date],
+                ['event_location', config.event_location || defaultConfig.event_location],
+                ['event_description', config.event_description || defaultConfig.event_description]
+            ])
+        });
+
+        // Init Data SDK
+        (async () => {
+            await window.dataSdk.init(dataHandler);
+        })();
+
+        // Fix icon rendering - initialize immediately
+        function initIcons() {
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+            }
+        }
+
+        // Initialize icons immediately when script loads
+        initIcons();
+
+        // Reinitialize after page navigation
+        const originalNavigate = navigate;
+        navigate = function(page) {
+            originalNavigate(page);
+            setTimeout(initIcons, 50);
+        };
+
+        // Also initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initIcons);
+        } else {
+            initIcons();
+        }
+
+        // Extra safety: initialize after a short delay
+        setTimeout(initIcons, 100);
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a05ddcc3a82f6668',t:'MTc4MDQ4MDk0Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
