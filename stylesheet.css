@@ -80,11 +80,15 @@ body {
 .container {
   position: relative;
   text-align: center;
+  border: 2px solid #000000;
+  border-radius: 25px;
+  overflow: hidden;
+  background-clip: padding-box;
   color: white;
   width: 25%;
-  height: 25%;
+  height: 30%;
   margin-top: 10%;
-  margin-left: 20%;
+
 }
 
 
@@ -101,4 +105,10 @@ body {
   text-align: center;
   font-size: 20px;
   text-shadow: 6px 2px 4px rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-left: 5%;
+  margin-right: 5%;
+ border-radius: 25px;
 }
