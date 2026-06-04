@@ -75,7 +75,16 @@ body {
   padding: 10px 20px;
   font-size: 20px;
   text-decoration: none;
-    margin-top: 20px;
+  margin-top: 20px;
+  display: inline-block;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button:hover,
+.form-submit:hover {
+  background-color: #86337B;
 }
 .container {
   position: relative;
@@ -111,4 +120,129 @@ body {
   margin-left: 5%;
   margin-right: 5%;
  border-radius: 25px;
+}
+
+.form-page {
+  width: min(920px, 92%);
+  margin: 60px auto;
+  color: white;
+}
+
+.form-hero,
+.form-section {
+  background: rgba(68, 22, 102, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  padding: 28px;
+  margin-bottom: 28px;
+}
+
+.form-section {
+  display: none;
+}
+
+.form-section.is-active {
+  display: block;
+}
+
+.form-hero {
+  text-align: center;
+}
+
+.form-hero h1,
+.form-section h2 {
+  margin-top: 0;
+  text-shadow: 4px 2px 4px rgb(0, 0, 0);
+}
+
+.form-choice {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.form-tab {
+  background-color: #441666;
+  opacity: 0.75;
+}
+
+.form-tab.is-active {
+  background-color: #c94ed0;
+  opacity: 1;
+  box-shadow: 0 0 18px rgba(201, 78, 208, 0.65);
+}
+
+.talent-form {
+  display: grid;
+  gap: 12px;
+}
+
+.talent-form label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.talent-form input,
+.talent-form select,
+.talent-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #c94ed0;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 17px;
+  color: #1d1d1d;
+}
+
+.talent-form textarea {
+  resize: vertical;
+}
+
+.form-submit {
+  background-color: #441666;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  padding: 13px 20px;
+  font-size: 19px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.form-message {
+  display: none;
+  background: rgba(31, 173, 92, 0.18);
+  border: 1px solid rgba(68, 255, 151, 0.5);
+  border-radius: 8px;
+  color: #d9ffe8;
+  padding: 12px;
+  margin: 6px 0 0;
+  text-align: center;
+}
+
+.form-message.is-visible {
+  display: block;
+}
+
+@media screen and (max-width: 760px) {
+  .topnav {
+    flex-wrap: wrap;
+    margin: 0;
+  }
+
+  .Informatie {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  .content {
+    margin-top: 20%;
+    font-size: 24px;
+  }
 }
