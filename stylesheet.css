@@ -226,6 +226,49 @@ body {
   display: block;
 }
 
+.admin-section {
+  background: rgba(68, 22, 102, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  color: white;
+  margin-bottom: 28px;
+  padding: 28px;
+}
+
+.admin-section h2 {
+  margin-top: 0;
+  text-shadow: 4px 2px 4px rgb(0, 0, 0);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.admin-table th {
+  background: rgba(201, 78, 208, 0.35);
+}
+
+.admin-table tr:last-child td {
+  border-bottom: 0;
+}
+
 @media screen and (max-width: 760px) {
   .topnav {
     flex-wrap: wrap;
